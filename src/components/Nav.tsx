@@ -14,7 +14,7 @@ function Nav() {
     ];
 
     return (
-        <header className='container'>
+        <header className="container">
             <nav>
                 <div className="nav__left">
                     <button className="btn-project-list" type="button">
