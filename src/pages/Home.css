@@ -45,9 +45,12 @@
         }
     }
 
+    & .kanban-card-wrapper {
+        overflow-y: auto;
+    }
+
     & .kanban-card {
         flex: 1;
-        overflow-y: auto;
 
         & .kanban-card-row {
             background-color: var(--light-gray);
