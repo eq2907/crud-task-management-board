@@ -47,39 +47,3 @@ nav {
         }
     }
 }
-
-.avatar-stacked {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    & img,
-    & div {
-        width: 36px;
-        height: 36px;
-        margin-left: -10px;
-        border-radius: 50%;
-        object-fit: cover;
-        border-width: 2px;
-        border-style: solid;
-        border-color: #ffffff;
-    }
-
-    & div {
-        background-color: var(--dark-blue);
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &:first-child {
-        & img {
-            margin-left: 0;
-        }
-    }
-}

@@ -1,0 +1,13 @@
+import UserAvatar from '../assets/images/ava_1.jpg';
+import UserAvatar2 from '../assets/images/ava_2.jpg';
+import UserAvatar3 from '../assets/images/ava_3.jpg';
+import UserAvatar4 from '../assets/images/ava_4.jpg';
+
+const AvaStackedData = [
+    { id: 1, avaimg: UserAvatar },
+    { id: 2, avaimg: UserAvatar2 },
+    { id: 3, avaimg: UserAvatar3 },
+    { id: 4, avaimg: UserAvatar4 }
+];
+
+export { AvaStackedData };

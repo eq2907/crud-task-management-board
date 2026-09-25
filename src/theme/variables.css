@@ -12,8 +12,11 @@ http://ionicframework.com/docs/theming/ */
     --gray: #CCD1D4;
     --dark-blue: #3383ED;
     --light-blue: #D9EFFF;
+    --medium-light-blue: #B4CEF5;
     --dark-red: #A61F40;
-    --light-red: #D05979;
-    --dark-teal: #418A9A;
+    --light-red: #F3C4D2;
+    --light-yellow: #FFF6D9;
+    --brown: #9F775D;
     --light-teal: #BEEAEC;
+    --dark-teal: #418A9A;
 }

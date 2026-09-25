@@ -1,6 +1,8 @@
 @import 'variables.css';
 
+html,
 body {
+    height: 100%;
     font-family: var(--ion-font-family);
 }
 
@@ -13,6 +15,10 @@ h5 {
     margin: 0px;
 }
 
+p {
+    line-height: 1.8;
+}
+
 button {
     background-color: transparent;
     outline: none;
@@ -20,10 +26,33 @@ button {
     cursor: pointer;
 }
 
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.self-center {
+    align-self: center;
+}
+
 .container {
     max-width: 96rem;
-    margin-inline: auto;
     padding-inline: 34px;
+
+    &.h-full {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .btn-transparent {
@@ -112,10 +141,93 @@ button {
     }
 }
 
-.w-full {
-    width: 100%;
+.avatar-stacked {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    & img,
+    & .avatar-stacked__text {
+        width: 36px;
+        height: 36px;
+        margin-left: -10px;
+        border-radius: 50%;
+        object-fit: cover;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #ffffff;
+    }
+
+    & .avatar-stacked__text {
+        background-color: var(--dark-blue);
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:first-child {
+        & img {
+            margin-left: 0;
+        }
+    }
 }
 
-.self-center {
-    align-self: center;
+.due-date,
+.label {
+    font-weight: 600;
+    padding: 7px 10px 7px 10px;
+    border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+
+    &.overdue {
+        background-color: var(--light-red);
+        color: var(--dark-red);
+        border-color: var(--dark-red);
+    }
+
+    &.warning {
+        background-color: var(--light-yellow);
+        color: var(--brown);
+        border-color: var(--brown);
+    }
+
+    &.normal {
+        background-color: var(--light-teal);
+        color: var(--dark-teal);
+        border-color: var(--dark-teal);
+    }
+}
+
+.label {
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+
+    &.label--blue {
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+        border-color: var(--dark-blue);
+    }
+
+    &.label--red {
+        background-color: var(--light-red);
+        color: var(--dark-red);
+        border-color: var(--dark-red);
+    }
+
+    &.label--yellow {
+        background-color: var(--light-yellow);
+        color: var(--brown);
+        border-color: var(--brown);
+    }
+
+    &.label--transparent {
+        background-color: transparent;
+        border-color: var(--gray);
+    }
+
 }

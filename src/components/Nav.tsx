@@ -1,17 +1,9 @@
-import './Nav.css';
 import { LockKeyhole, ChevronDown, UserRoundPlus, Funnel, RefreshCcwDot, Search } from 'lucide-react';
-import UserAvatar from '../assets/images/ava_1.jpg';
-import UserAvatar2 from '../assets/images/ava_2.jpg';
-import UserAvatar3 from '../assets/images/ava_3.jpg';
-import UserAvatar4 from '../assets/images/ava_4.jpg';
+import { AvaStacked } from './AvaStacked';
+
+import './Nav.css';
 
 function Nav() {
-    const images = [
-        UserAvatar,
-        UserAvatar2,
-        UserAvatar3,
-        UserAvatar4
-    ];
 
     return (
         <header className="container">
@@ -22,12 +14,7 @@ function Nav() {
                         <span className="text-project">Adhivasindo</span>
                         <ChevronDown size={18} />
                     </button>
-                    <div className="avatar-stacked">
-                        {images.map((image, index) => (
-                            <img key={index} src={image} alt="User Avatar" />
-                        ))}
-                        <div>2+</div>
-                    </div>
+                    <AvaStacked />
                     <button className="btn btn--gray btn--gray__btn-group" type="button">
                         <UserRoundPlus size={18} />
                         <span>Invite</span>
