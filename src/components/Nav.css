@@ -4,34 +4,41 @@ nav {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     padding-block: 24px;
+    padding-inline: 24px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--gray);
 
-    & div {
-        &:nth-child(1) {
-            grid-column: span 5;
+    & .nav__left {
+        grid-column: span 6;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        & .btn-project-list {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 12px;
 
-            & .btn-transparent {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-
-                & .lucide-chevron-down {
-                    margin-top: 2px;
-                }
-            }
-
-            & .text-project {
-                font-size: 24px;
-                font-weight: 400;
-                align-self: center;
+            & .lucide-chevron-down {
+                margin-top: 2px;
             }
         }
 
-        &:nth-child(2) {
-            grid-column: span 7;
+        & .text-project {
+            font-size: 24px;
+            font-weight: 400;
+            align-self: center;
         }
+    }
+
+    & .nav__right {
+        grid-column: span 6;
+        display: flex;
     }
 }
 
@@ -48,7 +55,7 @@ nav {
         margin-left: -10px;
         border-radius: 50%;
         object-fit: cover;
-        border-width: 1px;
+        border-width: 2px;
         border-style: solid;
         border-color: #ffffff;
     }

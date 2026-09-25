@@ -10,9 +10,22 @@ body {
 }
 
 .btn-transparent {
+    padding: 12px 20px;
     background-color: transparent;
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
     border: none;
     outline: none;
+    cursor: pointer;
+    display: inline-block;
+
+    &.btn-transparent__btn-group {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
 }
 
 .btn-primary {
@@ -46,4 +59,40 @@ body {
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.input {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: var(--light-gray);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--gray);
+    outline: none;
+    display: inline-block;
+}
+
+.input-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+
+    & button {
+        position: absolute;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        top: 10px;
+        left: 16px;
+    }
+}
+
+.w-full {
+    width: 100%;
+}
+
+.self-center {
+    align-self: center;
 }
