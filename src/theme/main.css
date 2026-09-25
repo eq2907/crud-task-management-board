@@ -40,6 +40,10 @@ button {
     height: 100%;
 }
 
+.mx-auto {
+    margin-inline: auto;
+}
+
 .self-center {
     align-self: center;
 }
@@ -105,6 +109,15 @@ button {
         &:hover {
             opacity: 0.8;
         }
+    }
+
+    &.btn-new-column {
+        width: 100%;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
     }
 }
 
@@ -229,5 +242,4 @@ button {
         background-color: transparent;
         border-color: var(--gray);
     }
-
 }

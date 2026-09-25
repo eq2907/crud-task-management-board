@@ -6,7 +6,7 @@ import './Nav.css';
 function Nav() {
 
     return (
-        <header className="container">
+        <header className="container mx-auto">
             <nav>
                 <div className="nav__left">
                     <button className="btn-project-list" type="button">
