@@ -18,9 +18,9 @@ function Nav() {
             <nav>
                 <div className="nav__left">
                     <button className="btn-project-list" type="button">
-                        <LockKeyhole size={20} />
+                        <LockKeyhole size={18} />
                         <span className="text-project">Adhivasindo</span>
-                        <ChevronDown size={20} />
+                        <ChevronDown size={18} />
                     </button>
                     <div className="avatar-stacked">
                         {images.map((image, index) => (
@@ -29,22 +29,22 @@ function Nav() {
                         <div>2+</div>
                     </div>
                     <button className="btn-primary btn-primary__btn-group" type="button">
-                        <UserRoundPlus size={20} />
+                        <UserRoundPlus size={18} />
                         <span>Invite</span>
                     </button>
                 </div>
                 <div className="nav__right self-center">
                     <button className="btn-transparent btn-transparent__btn-group" type="button">
-                        <Funnel size={20} />
+                        <Funnel size={18} />
                         <span>Filter</span>
                     </button>
                     <button className="btn-transparent bg-transparent--export-import btn-transparent__btn-group" type="button">
-                        <RefreshCcwDot size={20} />
+                        <RefreshCcwDot size={18} />
                         <span>Export / Import</span>
                     </button>
                     <div className="input-group w-full">
                         <button type='button'>
-                            <Search size={20} />
+                            <Search size={18} />
                         </button>
                         <input className="input w-full" type="text" placeholder='Search Tasks' />
                     </div>
