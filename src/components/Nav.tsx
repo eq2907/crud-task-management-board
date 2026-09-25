@@ -28,7 +28,7 @@ function Nav() {
                         ))}
                         <div>2+</div>
                     </div>
-                    <button className="btn-primary btn-primary__btn-group" type="button">
+                    <button className="btn btn--gray btn--gray__btn-group" type="button">
                         <UserRoundPlus size={18} />
                         <span>Invite</span>
                     </button>

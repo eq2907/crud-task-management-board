@@ -4,6 +4,22 @@ body {
     font-family: var(--ion-font-family);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: bold;
+    margin: 0px;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
 .container {
     max-width: 96rem;
     margin-inline: auto;
@@ -29,38 +45,40 @@ body {
     }
 }
 
-.btn-primary {
+.btn {
     padding: 12px 20px;
     border-radius: 8px;
-    background-color: var(--light-gray);
-    color: #333333;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     display: inline-block;
 
-    &.btn-primary__btn-group {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+    &.btn--gray {
+        background-color: var(--light-gray);
+        color: #333333;
+
+        &.btn--gray__btn-group {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.btn--light-blue {
+        background-color: var(--light-blue);
+        color: #3383ED;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
-.btn-primary:hover {
-    opacity: 0.8;
-}
-
-.btn-secondary {
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: transparent;
-    border: 1px solid var(--dark-blue);
-    color: var(--dark-blue);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-}
 
 .input {
     padding: 14px 16px;

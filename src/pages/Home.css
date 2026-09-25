@@ -1,0 +1,24 @@
+@import '../theme/variables.css';
+
+.kanban-wrapper {
+    & h4 {
+        font-size: 24px;
+    }
+
+    & .kanban-header {
+        & div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            & .btn--light-blue {
+                padding: 4px 6px;
+            }
+
+            &>div {
+                display: inline-flex;
+                gap: 16px;
+            }
+        }
+    }
+}
