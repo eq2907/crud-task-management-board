@@ -1,7 +1,18 @@
 import './Nav.css';
 import { LockKeyhole, ChevronDown, UserRoundPlus, Funnel, RefreshCcwDot, Search } from 'lucide-react';
+import UserAvatar from '../assets/images/ava_1.jpg';
+import UserAvatar2 from '../assets/images/ava_2.jpg';
+import UserAvatar3 from '../assets/images/ava_3.jpg';
+import UserAvatar4 from '../assets/images/ava_4.jpg';
 
 function Nav() {
+    const images = [
+        UserAvatar,
+        UserAvatar2,
+        UserAvatar3,
+        UserAvatar4
+    ];
+
     return (
         <header className='container'>
             <nav>
@@ -12,10 +23,9 @@ function Nav() {
                         <ChevronDown size={20} />
                     </button>
                     <div className="avatar-stacked">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
+                        {images.map((image, index) => (
+                            <img key={index} src={image} alt="User Avatar" />
+                        ))}
                         <div>2+</div>
                     </div>
                     <button className="btn-primary btn-primary__btn-group" type="button">
@@ -28,7 +38,7 @@ function Nav() {
                         <Funnel size={20} />
                         <span>Filter</span>
                     </button>
-                    <button className="btn-transparent btn-transparent__btn-group" type="button">
+                    <button className="btn-transparent bg-transparent--export-import btn-transparent__btn-group" type="button">
                         <RefreshCcwDot size={20} />
                         <span>Export / Import</span>
                     </button>
