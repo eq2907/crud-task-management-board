@@ -1,0 +1,49 @@
+@import 'variables.css';
+
+body {
+    font-family: var(--ion-font-family);
+}
+
+.container {
+    max-width: 96rem;
+    margin-inline: auto;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: var(--light-gray);
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+
+    &.btn-primary__btn-group {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-secondary {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}

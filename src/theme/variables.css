@@ -1,2 +1,18 @@
 /* For information on how to create your own theme, please refer to:
 http://ionicframework.com/docs/theming/ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    /* Font */
+    --ion-font-family: 'Inter', sans-serif;
+
+    /* Color */
+    --light-gray: #EAF2F5;
+    --gray: #CCD1D4;
+    --dark-blue: #3383ED;
+    --dark-red: #A61F40;
+    --light-red: #D05979;
+    --dark-teal: #418A9A;
+    --light-teal: #BEEAEC;
+}
