@@ -8,6 +8,52 @@
     overflow-x: auto;
 }
 
+/* ─── Loading Skeleton ─────────────────────────────────────────────────────── */
+
+.board-skeleton {
+    display: flex;
+    gap: 24px;
+    padding: 30px 0;
+    flex: 1;
+}
+
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton-column {
+    min-width: 340px;
+    flex: 0 0 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skeleton-header,
+.skeleton-card {
+    border-radius: 12px;
+    background: linear-gradient(90deg, #eaf2f5 25%, #d4e8f0 50%, #eaf2f5 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-header {
+    height: 44px;
+    border-radius: 10px;
+}
+
+.skeleton-card {
+    height: 130px;
+    border-radius: 18px;
+}
+
+.skeleton-card--short {
+    height: 90px;
+}
+
+/* ─── Kanban Layout ────────────────────────────────────────────────────────── */
+
 .kanban-wrapper {
     display: flex;
     flex: 1;
@@ -41,41 +87,94 @@
 
             &>div {
                 display: inline-flex;
-                gap: 16px;
+                gap: 12px;
+                align-items: center;
             }
         }
     }
 
     & .kanban-card-wrapper {
         overflow-y: auto;
+        flex: 1;
+        padding: 4px 2px;
+        border-radius: 12px;
+        transition: background-color 0.2s, border-color 0.2s;
+        min-height: 60px;
+
+        &.drag-over {
+            background-color: rgba(51, 133, 240, 0.06);
+            border: 2px dashed var(--blue);
+            border-radius: 12px;
+        }
     }
 
     & .kanban-card {
         flex: 1;
+        position: relative;
+
+        &:hover .card-delete-btn {
+            opacity: 1;
+            pointer-events: all;
+        }
 
         & .kanban-card-row {
             background-color: var(--light-gray);
             padding-top: 12px;
-            padding-bottom: 24px;
+            padding-bottom: 18px;
             padding-inline: 12px;
             border-radius: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            cursor: grab;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+            position: relative;
+            user-select: none;
+
+            &:hover {
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                cursor: grabbing;
+            }
+
+            &.dragging {
+                opacity: 0.4;
+                transform: rotate(1.5deg) scale(1.02);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            &.completed {
+                opacity: 0.6;
+
+                & .kanban-card-row__title p {
+                    text-decoration: line-through;
+                    color: #94a3b8;
+                }
+            }
         }
 
         & .kanban-card-row__img {
             margin-bottom: 15px;
+            margin-inline: -12px;
+            margin-top: -12px;
 
             & img {
                 width: 100%;
                 border-top-left-radius: 20px;
                 border-top-right-radius: 20px;
+                object-fit: cover;
+                max-height: 160px;
             }
         }
 
         & .kanban-card-row__label {
             font-size: 12px;
             margin-top: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
         }
 
         & .kanban-card-row__progress {
@@ -83,24 +182,28 @@
             width: 100%;
             height: 4px;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
 
             &>.kanban-card-row__progress-bar {
                 height: 100%;
                 border-radius: 4px;
                 background-color: var(--blue);
+                transition: width 0.4s ease;
             }
         }
 
         & .kanban-card-row__title {
             & p {
                 font-size: 14px;
+                margin: 0 0 12px 0;
+                line-height: 1.6;
             }
         }
 
         & .kanban-card-row__bottom {
             display: grid;
             grid-template-columns: repeat(12, minmax(0, 1fr));
+            align-items: center;
 
             & .kanban-card-row__bottom-left {
                 grid-column: span 7;
@@ -114,7 +217,8 @@
                 list-style: none;
                 padding-left: 0px;
                 display: flex;
-                gap: 12px;
+                flex-wrap: wrap;
+                gap: 8px;
                 margin: 0px;
                 padding: 0px;
 
@@ -137,17 +241,219 @@
 
                 & img,
                 & .avatar-stacked__text {
-                    width: 30px;
-                    height: 30px;
+                    width: 26px;
+                    height: 26px;
                     border-width: 1px;
                     margin-left: -8px;
                 }
 
                 & .avatar-stacked__text {
-                    font-size: 12px;
+                    font-size: 11px;
                 }
 
+                & .btn-team-add {
+                    display: none;
+                }
             }
         }
+    }
+}
+
+/* ─── Card Delete Button ───────────────────────────────────────────────────── */
+
+.card-delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, color 0.2s, background-color 0.2s;
+    z-index: 5;
+
+    &:hover {
+        color: var(--dark-red);
+        border-color: var(--dark-red);
+        background-color: var(--light-red);
+    }
+
+    &.confirm {
+        opacity: 1;
+        pointer-events: all;
+        color: var(--dark-red);
+        background-color: var(--light-red);
+        border-color: var(--dark-red);
+    }
+}
+
+/* ─── Drop Indicator ───────────────────────────────────────────────────────── */
+
+.drop-indicator {
+    height: 3px;
+    background: var(--blue);
+    border-radius: 4px;
+    margin: 4px 0;
+    animation: fadeIn 0.15s ease;
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scaleX(0.8); }
+        to { opacity: 1; transform: scaleX(1); }
+    }
+}
+
+/* ─── Empty Column Hint ────────────────────────────────────────────────────── */
+
+.empty-column-hint {
+    padding: 24px 12px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    border-radius: 12px;
+    border: 2px dashed var(--gray);
+    margin: 4px 0;
+}
+
+/* ─── Collapsed Column ─────────────────────────────────────────────────────── */
+
+.kanban-collapsed-hint {
+    padding: 16px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* ─── Task Count Badge ─────────────────────────────────────────────────────── */
+
+.task-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--soft-light-blue);
+    color: var(--dark-blue);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 2px 8px;
+    min-width: 22px;
+}
+
+/* ─── Column Menu ──────────────────────────────────────────────────────────── */
+
+.column-menu-wrapper {
+    position: relative;
+}
+
+.column-menu-btn {
+    color: #94a3b8;
+    transition: color 0.2s;
+
+    &:hover {
+        color: #333;
+    }
+}
+
+.column-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    min-width: 160px;
+    overflow: hidden;
+    animation: menuSlideIn 0.15s ease;
+
+    @keyframes menuSlideIn {
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    & button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        transition: background-color 0.15s;
+        text-align: left;
+
+        &:hover {
+            background-color: var(--light-gray);
+        }
+
+        &.danger {
+            color: var(--dark-red);
+
+            &:hover {
+                background-color: var(--light-red);
+            }
+        }
+    }
+}
+
+/* ─── Rename Input ─────────────────────────────────────────────────────────── */
+
+.rename-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rename-input {
+    font-size: 18px;
+    font-weight: 700;
+    border: 1.5px solid var(--blue);
+    border-radius: 6px;
+    padding: 3px 8px;
+    outline: none;
+    background: #fff;
+    max-width: 160px;
+}
+
+.rename-confirm,
+.rename-cancel {
+    padding: 4px;
+    border-radius: 4px;
+    color: #64748b;
+    transition: color 0.2s, background-color 0.2s;
+
+    &:hover {
+        background-color: var(--light-gray);
+    }
+}
+
+/* ─── New Column Button ────────────────────────────────────────────────────── */
+
+.new-column--editing {
+    padding: 8px;
+    background-color: var(--light-gray);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+
+    & .new-column-input {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1.5px solid var(--blue);
+        background: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        outline: none;
     }
 }
