@@ -13,7 +13,7 @@ const LABEL_OPTIONS: { value: LabelColor; label: string; css: string }[] = [
 	{ value: 'blue', label: 'Feature', css: 'label--blue' },
 	{ value: 'yellow', label: 'Issue', css: 'label--yellow' },
 	{ value: 'green', label: 'Enhancement', css: 'label--green' },
-	{ value: 'transparent', label: 'Misc', css: 'label--transparent' },
+	{ value: 'transparent', label: 'Undefined', css: 'label--transparent' },
 ];
 
 const PRIORITY_OPTIONS: { value: Priority; label: string }[] = [

@@ -18,7 +18,7 @@ const LABEL_DISPLAY: Record<string, string> = {
   blue: 'Feature',
   yellow: 'Issue',
   green: 'Enhancement',
-  transparent: 'Misc',
+  transparent: 'Undefined',
 };
 
 interface KanbanCardProps {
