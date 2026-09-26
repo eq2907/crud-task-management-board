@@ -133,10 +133,15 @@ nav {
     font-weight: 600;
     cursor: pointer;
     display: inline-block;
+    transition: 0.4s all;
 
     &.btn--gray {
         background-color: var(--light-gray);
         color: #333333;
+
+        &.btn-close {
+            padding: 4px 6px;
+        }
 
         &.btn--gray__btn-group {
             display: inline-flex;
@@ -303,6 +308,7 @@ nav {
     inset: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    z-index: 50;
 }
 
 .modal {
@@ -320,12 +326,91 @@ nav {
 .modal-content {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 15px;
 
     & .modal-content__left {
         grid-column: span 6;
+
+        & .modal-content__left-header {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: var(--gray);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            & .btn-complete {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 8px 16px;
+                border-radius: 8px;
+                border-width: 1.5px;
+                border-style: solid;
+                border-color: var(--light-gray);
+                background-color: var(--light-gray);
+                color: #333333;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                user-select: none;
+                transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+                & .toggle-complete {
+                    display: none;
+                }
+
+                & .lucide-check {
+                    width: 15px;
+                    height: 15px;
+                    stroke-width: 2.5px;
+                    color: #333333;
+                    transition: color 0.2s;
+                }
+
+                & .btn-text {
+                    line-height: 1;
+                }
+
+                &:hover {
+                    background-color: #dce9ee;
+                    border-color: #aab5ba;
+                }
+
+                &:has(.toggle-complete:checked) {
+                    background-color: #d4edda;
+                    border-color: #28a745;
+                    color: #28a745;
+
+                    & .lucide-check {
+                        color: #28a745;
+                    }
+                }
+            }
+        }
+
+        & .modal-cover {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: var(--gray);
+            padding-bottom: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
     }
 
     & .modal-content__right {
         grid-column: span 6;
     }
+}
+
+.backdrop {
+    background-color: rgba(3, 7, 18, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
 }
