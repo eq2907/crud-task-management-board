@@ -1,5 +1,6 @@
 import { Plus, EllipsisVertical, Minimize2, Timer, SquareCheck, Paperclip } from "lucide-react";
 import { AvaStacked } from '../components/AvaStacked';
+import { Modal } from '../components/Modal';
 
 import './Home.css';
 
@@ -475,6 +476,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <Modal />
         </>
     );
 }

@@ -243,3 +243,16 @@ button {
         border-color: var(--gray);
     }
 }
+
+.modal-wrapper {
+    width: 100%;
+    height: calc(100% - 1rem);
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
