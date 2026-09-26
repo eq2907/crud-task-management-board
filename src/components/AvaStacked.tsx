@@ -26,9 +26,6 @@ function AvaStacked({ assigneeIds, maxVisible = 3, size = 'sm' }: AvaStackedProp
       {overflow > 0 && (
         <div className="avatar-stacked__text">{overflow}+</div>
       )}
-      <button className="btn-team-add btn btn--gray" type="button" aria-label="Add team member">
-        <Plus size={20} />
-      </button>
     </div>
   );
 }
