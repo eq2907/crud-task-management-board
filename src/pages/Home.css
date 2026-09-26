@@ -1,5 +1,11 @@
 @import '../theme/variables.css';
 
+/* ─── Board ───────────────────────────────────────────────────────────── */
+
+.board {
+    height: 100%;
+}
+
 /* ─── Loading Skeleton ─────────────────────────────────────────────────────── */
 
 .board-skeleton {
@@ -97,6 +103,11 @@
         padding: 4px 2px;
         border-radius: 12px;
         transition: background-color 0.2s, border-color 0.2s;
+
+        @media screen and (min-width: 1536px) {
+            max-height: 72dvh;
+        }
+
 
         &.drag-over {
             background-color: rgba(51, 133, 240, 0.06);
