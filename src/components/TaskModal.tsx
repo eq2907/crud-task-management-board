@@ -375,16 +375,28 @@ function TaskModal() {
                   <label htmlFor="modal-column-select">
                     <h4>Column</h4>
                   </label>
-                  <select
-                    id="modal-column-select"
-                    className="select w-full"
-                    value={form.columnId}
-                    onChange={(e) => set({ columnId: e.target.value })}
-                  >
-                    {columns.sort((a, b) => a.order - b.order).map((col) => (
-                      <option key={col.id} value={col.id}>{col.title}</option>
-                    ))}
-                  </select>
+                  <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                    <select
+                      id="modal-column-select"
+                      className="select w-full"
+                      value={form.columnId}
+                      onChange={(e) => set({ columnId: e.target.value })}
+                      style={{ paddingRight: '2.25rem', appearance: 'none', WebkitAppearance: 'none' }}
+                    >
+                      {columns.sort((a, b) => a.order - b.order).map((col) => (
+                        <option key={col.id} value={col.id}>{col.title}</option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        position: 'absolute',
+                        right: '16px',
+                        pointerEvents: 'none',
+                        color: '#94a3b8'
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Label */}
@@ -393,7 +405,7 @@ function TaskModal() {
                   <div className="assignee-picker-wrapper">
                     <button
                       type="button"
-                      className="assignee-picker-toggle"
+                      className="assignee-picker-toggle assignee-picker-toggle--label"
                       onClick={() => {
                         setShowLabelPicker((p) => !p);
                         setShowAssigneePicker(false);
@@ -437,16 +449,27 @@ function TaskModal() {
                   <label htmlFor="modal-priority-select">
                     <h4>Priority</h4>
                   </label>
-                  <select
-                    id="modal-priority-select"
-                    className="select w-full"
-                    value={form.priority}
-                    onChange={(e) => set({ priority: e.target.value as Priority })}
-                  >
-                    {PRIORITY_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.value}>{opt.label}</option>
-                    ))}
-                  </select>
+                  <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                    <select
+                      id="modal-priority-select"
+                      className="select w-full"
+                      value={form.priority}
+                      onChange={(e) => set({ priority: e.target.value as Priority })}
+                    >
+                      {PRIORITY_OPTIONS.map((opt) => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        position: 'absolute',
+                        right: '16px',
+                        pointerEvents: 'none',
+                        color: '#94a3b8'
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

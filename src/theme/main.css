@@ -53,6 +53,10 @@ hr {
 
 .mx-auto {
     margin-inline: auto;
+
+    @media screen and (min-width: 1536px) {
+        margin-inline: inherit;
+    }
 }
 
 .my-34 {
@@ -67,6 +71,11 @@ hr {
     max-width: 96rem;
     padding-inline: 34px;
 
+    @media screen and (min-width: 1536px) {
+        max-width: 100%;
+        padding-inline: 15px;
+    }
+
     &.h-full {
         height: 100%;
         display: flex;
@@ -80,10 +89,15 @@ nav {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     padding-block: 24px;
-    padding-inline: 24px;
+    padding-inline: 4px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: var(--gray);
+
+    @media screen and (min-width: 1536px) {
+        padding-inline: 15px;
+    }
+
 
     & .nav__left {
         grid-column: span 6;
@@ -598,8 +612,6 @@ nav {
                 width: 100%;
                 user-select: none;
                 transition: opacity 0.2s;
-                background-color: var(--light-gray);
-                border-radius: 12px;
 
                 & input[type="file"] {
                     display: none;
@@ -679,7 +691,7 @@ nav {
             margin-top: 12px;
             background-color: var(--light-gray);
             border-radius: 10px;
-            border-style: dashed;
+            border-style: solid;
             border-width: 1.5px;
             border-color: var(--gray);
             cursor: pointer;
@@ -711,8 +723,9 @@ nav {
 
             & .btn-text-browse {
                 font-size: 14px;
-                font-weight: 500;
                 color: var(--dark-blue);
+                font-weight: 500;
+                margin-left: -4px;
                 white-space: nowrap;
             }
 
@@ -769,7 +782,7 @@ nav {
 
     & span {
         position: absolute;
-        top: 68px;
+        top: 55px;
         left: 32px;
         color: #b0bec5;
     }
@@ -854,8 +867,8 @@ nav {
             position: absolute;
             left: 4px;
             top: 1px;
-            width: 5px;
-            height: 9px;
+            width: 3px;
+            height: 7px;
             border: 2px solid #fff;
             border-top: none;
             border-left: none;
@@ -1014,7 +1027,7 @@ nav {
     align-items: center;
     gap: 8px;
     width: 100%;
-    padding: 10px 12px;
+    padding: 8px 16px;
     background-color: var(--light-gray);
     border-radius: 8px;
     border: none;
@@ -1023,6 +1036,10 @@ nav {
     font-size: 14px;
     transition: background-color 0.2s;
     justify-content: space-between;
+
+    &.assignee-picker-toggle--label {
+        padding: 11px 16px;
+    }
 
     &:hover {
         background-color: #dce9ee;
@@ -1132,8 +1149,8 @@ nav {
                 position: absolute;
                 left: 3px;
                 top: 0px;
-                width: 5px;
-                height: 9px;
+                width: 3px;
+                height: 7px;
                 border: 2px solid #fff;
                 border-top: none;
                 border-left: none;

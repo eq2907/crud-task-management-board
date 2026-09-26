@@ -62,7 +62,7 @@
     flex: 1;
     gap: 24px;
     align-items: stretch;
-    margin-block: 30px;
+    margin-top: 30px;
     overflow-y: auto;
 
     & h4 {
@@ -74,6 +74,11 @@
         flex: 0 0 340px;
         display: flex;
         flex-direction: column;
+
+        @media screen and (min-width: 1536px) {
+            min-width: 353px;
+            flex: 0 0 353px;
+        }
     }
 
     & .kanban-header {
@@ -130,8 +135,8 @@
             padding-top: 12px;
             padding-bottom: 18px;
             padding-inline: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            border-radius: 20px;
+            margin-bottom: 20px;
             cursor: grab;
             transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
             position: relative;
@@ -164,15 +169,13 @@
 
         & .kanban-card-row__img {
             margin-bottom: 15px;
-            margin-inline: -12px;
-            margin-top: -12px;
 
             & img {
                 width: 100%;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
+                max-height: 180px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
                 object-fit: cover;
-                max-height: 160px;
             }
         }
 
@@ -445,10 +448,6 @@
 }
 
 /* ─── New Column Button ────────────────────────────────────────────────────── */
-
-.new-column {
-    padding-right: 24px;
-}
 
 .new-column--editing {
     padding: 8px;
