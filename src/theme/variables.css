@@ -10,9 +10,10 @@ http://ionicframework.com/docs/theming/ */
     /* Color */
     --light-gray: #EAF2F5;
     --gray: #CCD1D4;
-    --dark-blue: #3383ED;
+    --blue: #3385F0;
+    --dark-blue: #296DC3;
     --light-blue: #D9EFFF;
-    --medium-light-blue: #B4CEF5;
+    --soft-light-blue: #B3D0F1;
     --dark-red: #A61F40;
     --light-red: #F3C4D2;
     --light-yellow: #FFF6D9;

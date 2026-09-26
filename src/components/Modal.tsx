@@ -1,4 +1,4 @@
-import { X, Check, ImagePlus, Pencil } from "lucide-react";
+import { X, Check, ImagePlus, Pencil, Plus } from "lucide-react";
 import { AvaStacked } from "./AvaStacked";
 
 function Modal() {
@@ -8,7 +8,7 @@ function Modal() {
                 <div className="modal">
                     <div className="modal-content">
                         <div className="modal-content__left">
-                            <div className="modal-content__left-header">
+                            <div className="modal-content__left-header px-14">
                                 <div>
                                     <label className="btn-complete">
                                         <input type="checkbox" className="toggle-complete" />
@@ -110,6 +110,55 @@ function Modal() {
                                     <span className="btn-text">Drag & Drop files here <span>or</span></span>
                                     <span className="btn-text-browse">browse from device</span>
                                 </label>
+                            </div>
+                            <hr className="my-34" />
+                            <div className="modal-checklist px-14">
+                                <h2>Check List</h2>
+                                <span className="modal-checklistt__count">0 / 0</span>
+                                <div className="progress">
+                                    <div className="progress-bar" style={{ width: "0%" }}></div>
+                                </div>
+                                <div className="modal-checklist__add-checklist">
+                                    <label htmlFor="modal-checklist-input" style={{ display: "none" }}>
+                                        <h4>Add an item</h4>
+                                        <input type="text" id="modal-checklist-input" className="input w-full" />
+                                    </label>
+                                    <div className="checklists" style={{ display: "none" }}>
+                                        <ul>
+                                            <li>
+                                                <label htmlFor="modal-checklist-checkbox-1">
+                                                    <input type="checkbox" name="modal-checklist-checkbox-1" id="modal-checklist-checkbox-1" className="checkbox" />
+                                                    <span className="checklist-text">Lorem Ipsum</span>
+                                                </label>
+                                                <button className="self-center" type="button">
+                                                    <X size={16} />
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <label htmlFor="modal-checklist-checkbox-2">
+                                                    <input type="checkbox" name="modal-checklist-checkbox-2" id="modal-checklist-checkbox-2" className="checkbox" />
+                                                    <span className="checklist-text">Lorem Ipsum</span>
+                                                </label>
+                                                <button className="self-center" type="button">
+                                                    <X size={16} />
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button className="btn btn--gray btn--gray__btn-group" type="button">
+                                        <Plus size={18} />
+                                        <span>Add subtask</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr className="my-34" />
+                            <div className="modal-bottom">
+                                <button className="btn btn--gray" type="button">
+                                    Discard
+                                </button>
+                                <button className="btn btn--blue" type="button">
+                                    Save
+                                </button>
                             </div>
                         </div>
                     </div>

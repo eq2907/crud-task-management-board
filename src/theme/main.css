@@ -121,6 +121,20 @@ nav {
     }
 }
 
+.progress {
+    background-color: var(--soft-light-blue);
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+
+    &>.progress-bar {
+        height: 100%;
+        border-radius: 4px;
+        background-color: var(--dark-blue);
+    }
+}
+
 .btn-transparent {
     padding: 12px 20px;
     background-color: transparent;
@@ -184,6 +198,15 @@ nav {
 
         &:hover {
             opacity: 0.8;
+        }
+    }
+
+    &.btn--blue {
+        background-color: var(--blue);
+        color: #ffffff;
+
+        &:hover {
+            background-color: var(--dark-blue);
         }
     }
 
@@ -585,12 +608,63 @@ nav {
     & span {
         position: absolute;
         top: 68px;
-        left: 20px
+        left: 32px
     }
 
     & textarea {
         padding-left: 50px;
     }
+}
+
+.modal-checklist {
+    & .progress {
+        margin-bottom: 24px;
+    }
+
+    & .modal-checklistt__count {
+        font-size: 13px;
+        color: #333333;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    & .checklists {
+        & ul {
+            margin: 0px;
+            padding-left: 0px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            & li {
+                display: flex;
+                justify-content: space-between;
+
+                & label {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 12px;
+                    cursor: pointer;
+                }
+
+                & button {
+                    color: #94a3b8;
+                    transition: 0.4s all;
+
+                    &:hover {
+                        color: var(--dark-red);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-checklist__add-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .modal-column {
@@ -607,6 +681,13 @@ nav {
     & .modal-row {
         grid-column: span 6;
     }
+}
+
+.modal-bottom {
+    width: 100%;
+    display: inline-flex;
+    gap: 12px;
+    justify-content: flex-end;
 }
 
 .backdrop {
