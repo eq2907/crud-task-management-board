@@ -1,4 +1,4 @@
-import { X, Check, ImagePlus } from "lucide-react";
+import { X, Check, ImagePlus, Pencil } from "lucide-react";
 
 function Modal() {
     return (
@@ -26,6 +26,12 @@ function Modal() {
                                     <ImagePlus size={50} />
                                     <input type="file" id="modal-cover-input" />
                                     <span className="btn-text">Add Cover Image</span>
+                                </label>
+                            </div>
+                            <div className="modal-title">
+                                <label htmlFor="modal-title-input">
+                                    <textarea name="title" id="modal-title-input" placeholder="Task title" rows={1}>CRUD Employe</textarea>
+                                    <span><Pencil size={20} /></span>
                                 </label>
                             </div>
                         </div>
