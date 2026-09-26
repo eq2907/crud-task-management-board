@@ -1,13 +1,5 @@
 @import '../theme/variables.css';
 
-.board {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: hidden;
-    overflow-x: auto;
-}
-
 /* ─── Loading Skeleton ─────────────────────────────────────────────────────── */
 
 .board-skeleton {
@@ -65,7 +57,7 @@
     gap: 24px;
     align-items: stretch;
     margin-block: 30px;
-    overflow: hidden;
+    overflow-y: auto;
 
     & h4 {
         font-size: 20px;
@@ -99,12 +91,12 @@
     }
 
     & .kanban-card-wrapper {
+        max-height: 77dvh;
         overflow-y: auto;
         flex: 1;
         padding: 4px 2px;
         border-radius: 12px;
         transition: background-color 0.2s, border-color 0.2s;
-        min-height: 60px;
 
         &.drag-over {
             background-color: rgba(51, 133, 240, 0.06);
@@ -442,6 +434,10 @@
 }
 
 /* ─── New Column Button ────────────────────────────────────────────────────── */
+
+.new-column {
+    padding-right: 24px;
+}
 
 .new-column--editing {
     padding: 8px;
