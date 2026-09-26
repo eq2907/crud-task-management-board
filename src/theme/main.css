@@ -288,7 +288,7 @@ nav {
 .input,
 .select,
 .textarea {
-    padding: 14px 16px;
+    padding: 10px 16px;
     border-radius: 8px;
     background-color: var(--light-gray);
     font-size: 16px;
@@ -297,7 +297,6 @@ nav {
     border: none;
     outline: none;
     display: inline-block;
-    font-family: var(--ion-font-family);
     transition: box-shadow 0.2s;
 
     &:focus {
@@ -312,7 +311,7 @@ nav {
     position: relative;
 
     & button {
-        padding: 14px 16px;
+        padding: 10px 16px;
         position: absolute;
         background-color: transparent;
         outline: none;
@@ -492,8 +491,15 @@ nav {
     animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
     @keyframes modalSlideUp {
-        from { opacity: 0; transform: translateY(20px) scale(0.98); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+        from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     }
 
     & h4 {
@@ -502,7 +508,6 @@ nav {
         color: #64748b;
         letter-spacing: 0.01em;
         margin-bottom: 8px;
-        text-transform: uppercase;
     }
 }
 
@@ -948,8 +953,13 @@ nav {
     animation: fadeIn 0.2s ease;
 
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 }
 
@@ -1057,7 +1067,7 @@ nav {
         font-size: 11px;
         font-weight: 600;
         padding: 2px 8px;
-        border-radius: 20px;
+        border-radius: 8px;
         border: 1px solid;
     }
 }
@@ -1076,8 +1086,15 @@ nav {
     animation: pickerSlideIn 0.15s ease;
 
     @keyframes pickerSlideIn {
-        from { opacity: 0; transform: translateY(-4px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 
@@ -1153,8 +1170,15 @@ nav {
     animation: filterSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
     @keyframes filterSlideIn {
-        from { opacity: 0; transform: translateY(-8px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     & .filter-panel__header {
@@ -1181,7 +1205,9 @@ nav {
             cursor: pointer;
             transition: opacity 0.2s;
 
-            &:hover { opacity: 0.8; }
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 }
@@ -1189,7 +1215,9 @@ nav {
 .filter-section {
     margin-bottom: 16px;
 
-    &:last-child { margin-bottom: 0; }
+    &:last-child {
+        margin-bottom: 0;
+    }
 
     & h4 {
         font-size: 12px;
