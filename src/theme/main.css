@@ -54,6 +54,10 @@ hr {
 .mx-auto {
     margin-inline: auto;
 
+    @media screen and (max-width: 768px) {
+        margin-inline: inherit;
+    }
+
     @media screen and (min-width: 1536px) {
         margin-inline: inherit;
     }
@@ -85,25 +89,62 @@ hr {
 
 /* ─── Navigation ─────────────────────────────────────────────────────────── */
 
+.nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: #ffffff;
+}
+
 nav {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    padding-block: 24px;
+    padding-block: 20px;
     padding-inline: 4px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: var(--gray);
+    align-items: center;
 
     @media screen and (min-width: 1536px) {
         padding-inline: 15px;
     }
 
+    /* Hamburger only visible on mobile */
+    & .nav-hamburger {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        color: #334155;
+        padding: 6px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: var(--light-gray);
+        }
+
+        @media screen and (max-width: 767px) {
+            display: flex;
+            grid-column: span 2;
+            justify-self: end;
+        }
+    }
 
     & .nav__left {
         grid-column: span 6;
         display: flex;
         align-items: center;
         gap: 16px;
+
+        @media screen and (max-width: 767px) {
+            grid-column: span 10;
+        }
+
+        @media screen and (max-width: 479px) {
+            grid-column: span 10;
+            gap: 10px;
+        }
 
         & .btn-project-list {
             background-color: transparent;
@@ -114,9 +155,14 @@ nav {
             align-items: center;
             gap: 12px;
             margin-right: 12px;
+            flex-shrink: 0;
 
             & .lucide-chevron-down {
                 margin-top: 2px;
+            }
+
+            @media screen and (max-width: 479px) {
+                margin-right: 0;
             }
         }
 
@@ -124,19 +170,92 @@ nav {
             font-size: 18px;
             font-weight: 400;
             align-self: center;
+
+            @media screen and (max-width: 479px) {
+                font-size: 15px;
+                max-width: 120px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+        & .nav__left-extras {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
         }
     }
 
     & .nav__right {
         grid-column: span 6;
         display: flex;
-        gap: 12px;
+        gap: 10px;
         align-items: center;
 
-        & .bg-transparent--export-import {
-            width: 400px;
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+
+        & .nav-export-btn {
+            @media screen and (max-width: 1100px) {
+                display: none;
+            }
+        }
+
+        & .nav-search {
+            flex: 1;
+            min-width: 140px;
+
+            @media screen and (max-width: 1023px) {
+                min-width: 100px;
+            }
+        }
+
+        & .nav-btn-label {
+            @media screen and (max-width: 1023px) {
+                display: none;
+            }
         }
     }
+}
+
+/* ─── Mobile Nav Menu ─────────────────────────────────────────────────────── */
+
+.nav-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0 20px;
+    border-bottom: 1px solid var(--gray);
+    animation: mobileMenuIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    @keyframes mobileMenuIn {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+    }
+}
+
+.nav-mobile-menu__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 /* ─── Progress Bar ───────────────────────────────────────────────────────── */

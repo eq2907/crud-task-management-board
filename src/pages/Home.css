@@ -6,6 +6,62 @@
     height: 100%;
 }
 
+/* ─── Board Toolbar ────────────────────────────────────────────────────────── */
+
+.board-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 18px;
+    padding-bottom: 4px;
+    gap: 12px;
+
+    @media screen and (min-width: 1200px) {
+        display: none;
+    }
+}
+
+/* ─── View Toggle ──────────────────────────────────────────────────────────── */
+
+.view-toggle {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.view-toggle__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        color: #334155;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    &.active {
+        background-color: #ffffff;
+        color: #1e293b;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.view-toggle__label {
+    @media screen and (max-width: 479px) {
+        display: none;
+    }
+}
+
 /* ─── Loading Skeleton ─────────────────────────────────────────────────────── */
 
 .board-skeleton {
@@ -31,6 +87,11 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    @media screen and (max-width: 767px) {
+        min-width: 280px;
+        flex: 0 0 280px;
+    }
 }
 
 .skeleton-header,
@@ -62,8 +123,9 @@
     flex: 1;
     gap: 24px;
     align-items: stretch;
-    margin-top: 30px;
+    margin-top: 18px;
     overflow-y: auto;
+    padding-bottom: 24px;
 
     & h4 {
         font-size: 20px;
@@ -78,6 +140,16 @@
         @media screen and (min-width: 1536px) {
             min-width: 353px;
             flex: 0 0 353px;
+        }
+
+        @media screen and (max-width: 767px) {
+            min-width: 280px;
+            flex: 0 0 280px;
+        }
+
+        @media screen and (max-width: 479px) {
+            min-width: 260px;
+            flex: 0 0 260px;
         }
     }
 
@@ -104,6 +176,7 @@
     & .kanban-card-wrapper {
         max-height: 77dvh;
         overflow-y: auto;
+        overflow-x: hidden;
         flex: 1;
         padding: 4px 2px;
         border-radius: 12px;
@@ -111,6 +184,10 @@
 
         @media screen and (min-width: 1536px) {
             max-height: 72dvh;
+        }
+
+        @media screen and (max-width: 767px) {
+            max-height: 65dvh;
         }
 
 
@@ -469,4 +546,296 @@
         font-weight: 600;
         outline: none;
     }
+}
+
+/* ─── List View Wrapper ────────────────────────────────────────────────────── */
+
+.list-view-wrapper {
+    margin-top: 18px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    max-height: calc(100dvh - 160px);
+}
+
+/* ─── List View ────────────────────────────────────────────────────────────── */
+
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ─── List Group ───────────────────────────────────────────────────────────── */
+
+.list-group {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+    background: #fff;
+    animation: listGroupIn 0.2s ease;
+
+    @keyframes listGroupIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.list-group__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: var(--light-gray);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    text-align: left;
+
+    &:hover {
+        background-color: #dce9ee;
+    }
+}
+
+.list-group__header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #334155;
+}
+
+.list-group__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.list-group__count {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    background-color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid var(--gray);
+    min-width: 24px;
+    text-align: center;
+}
+
+/* ─── List Table ───────────────────────────────────────────────────────────── */
+
+.list-table {
+    width: 100%;
+}
+
+.list-table__header {
+    display: grid;
+    grid-template-columns: 1fr 130px 160px 130px 110px 60px;
+    gap: 0;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--gray);
+    background: #fafcff;
+
+    @media screen and (max-width: 1023px) {
+        grid-template-columns: 1fr 100px 130px 110px 80px 50px;
+        padding: 10px 14px;
+    }
+
+    @media screen and (max-width: 767px) {
+        grid-template-columns: 1fr 90px 80px 50px;
+
+        & .list-col--labels,
+        & .list-col--subtasks {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 479px) {
+        grid-template-columns: 1fr 70px 50px;
+
+        & .list-col--due,
+        & .list-col--labels,
+        & .list-col--subtasks {
+            display: none;
+        }
+    }
+}
+
+.list-col {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    padding-inline: 6px;
+
+    &.list-col--title {
+        padding-left: 0;
+    }
+
+    &.list-col--actions {
+        justify-content: center;
+    }
+}
+
+/* ─── List Table Row ───────────────────────────────────────────────────────── */
+
+.list-table__row {
+    display: grid;
+    grid-template-columns: 1fr 130px 160px 130px 110px 60px;
+    gap: 0;
+    padding: 13px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    align-items: center;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        background-color: #f8faff;
+    }
+
+    &.completed {
+        opacity: 0.6;
+
+        & .list-row__title {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        grid-template-columns: 1fr 100px 130px 110px 80px 50px;
+        padding: 12px 14px;
+    }
+
+    @media screen and (max-width: 767px) {
+        grid-template-columns: 1fr 90px 80px 50px;
+
+        & .list-col--labels,
+        & .list-col--subtasks {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 479px) {
+        grid-template-columns: 1fr 70px 50px;
+
+        & .list-col--due,
+        & .list-col--labels,
+        & .list-col--subtasks {
+            display: none;
+        }
+    }
+}
+
+.list-row__cover {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 10px;
+
+    @media screen and (max-width: 479px) {
+        display: none;
+    }
+}
+
+.list-row__title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+
+    @media screen and (max-width: 767px) {
+        font-size: 13px;
+    }
+}
+
+.list-row__labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.list-row__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.list-row__subtasks {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.list-col--title {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* ─── List Delete Button ───────────────────────────────────────────────────── */
+
+.list-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #94a3b8;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    opacity: 0;
+
+    .list-table__row:hover & {
+        opacity: 1;
+    }
+
+    &:hover {
+        color: var(--dark-red);
+        border-color: var(--dark-red);
+        background-color: var(--light-red);
+    }
+
+    &.confirm {
+        opacity: 1;
+        color: var(--dark-red);
+        background-color: var(--light-red);
+        border-color: var(--dark-red);
+    }
+}
+
+/* ─── List Empty State ─────────────────────────────────────────────────────── */
+
+.list-empty {
+    padding: 28px 20px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
 }
