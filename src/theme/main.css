@@ -59,6 +59,54 @@ button {
     }
 }
 
+nav {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    padding-block: 24px;
+    padding-inline: 24px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--gray);
+
+    & .nav__left {
+        grid-column: span 6;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        & .btn-project-list {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 12px;
+
+            & .lucide-chevron-down {
+                margin-top: 2px;
+            }
+        }
+
+        & .text-project {
+            font-size: 18px;
+            font-weight: 400;
+            align-self: center;
+        }
+    }
+
+    & .nav__right {
+        grid-column: span 6;
+        display: flex;
+        gap: 20px;
+
+        & .bg-transparent--export-import {
+            width: 400px;
+        }
+    }
+}
+
 .btn-transparent {
     padding: 12px 20px;
     background-color: transparent;
@@ -255,4 +303,29 @@ button {
     inset: 0;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 92rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    & .modal-content__left {
+        grid-column: span 6;
+    }
+
+    & .modal-content__right {
+        grid-column: span 6;
+    }
 }

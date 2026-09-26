@@ -1,8 +1,6 @@
 import { LockKeyhole, ChevronDown, UserRoundPlus, Funnel, RefreshCcwDot, Search } from 'lucide-react';
 import { AvaStacked } from './AvaStacked';
 
-import './Nav.css';
-
 function Nav() {
 
     return (
