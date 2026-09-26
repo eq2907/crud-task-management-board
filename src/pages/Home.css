@@ -366,6 +366,9 @@
 }
 
 .column-menu {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0px !important;
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
